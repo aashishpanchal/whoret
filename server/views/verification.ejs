@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification Email</title>
+    <style>
+      :root {
+        --background: #ffff;
+        --foreground: #000000;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        color: var(--foreground);
+        background-color: var(--background);
+        font-family: "Inter", sans-serif;
+      }
+      .sm {
+        margin: 0px 0px 0px;
+        font-size: 14px;
+      }
+      .lg {
+        font-size: 32px;
+        font-style: normal;
+        font-weight: bold;
+      }
+      .mx-4 {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .leading-3 {
+        font-size: 14px;
+        line-height: 21px;
+      }
+      .td-1 {
+        vertical-align: top;
+        line-height: 1;
+        background-color: var(--background);
+        border-radius: 0px;
+      }
+      .td-2 {
+        vertical-align: top;
+        line-height: 1;
+        padding: 32px 32px 48px;
+        background-color: var(--background);
+        border-radius: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      width="100%"
+      style="width: 100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            align="center"
+            valign="top"
+            style="vertical-align: top; line-height: 1; padding: 48px 32px"
+          >
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              border="0"
+              width="600"
+              style="width: 600px"
+            >
+              <tbody>
+                <tr>
+                  <td align="left" valign="top" bgcolor="#fff" class="td-1">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      border="0"
+                      width="100%"
+                      style="width: 100%; border-collapse: separate"
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            align="left"
+                            valign="top"
+                            bgcolor="#ffffff"
+                            class="td-2"
+                          >
+                            <h1 align="left" class="lg">Verification code</h1>
+                            <div class="mx-4">
+                              <p align="left" class="sm">
+                                Enter the following verification code when
+                                prompted:
+                              </p>
+                              <p class="lg mx-4">
+                                <b><%= code %></b>
+                              </p>
+                              <p class="sm">
+                                To protect your account, do not share this code.
+                              </p>
+                            </div>
+                            <p class="sm">
+                              <b>Didn't request this?</b>
+                            </p>
+                            <p class="sm leading-3">
+                              This code was send from
+                              <b><%= appName %></b> at <b><%= date %></b>. If
+                              you didn't make this request, you can safely
+                              ignore this email.
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
