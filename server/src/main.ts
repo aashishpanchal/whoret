@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import chalk from "chalk";
-import config from "@config";
-import logger from "@logger";
+import config from "@/config";
+import logger from "@/common/logger";
 import { App } from "./app";
 
 async function main() {
@@ -11,7 +11,7 @@ async function main() {
   const host = config.getOrThrow<string>("app.host");
   // server start
   app.listen(port, host, () =>
-    logger.log(`Server Listening on: ${chalk.cyan(`http://${host}:${port}`)}`)
+    logger.log(`🔥Server Listening on ${chalk.cyan(`http://${host}:${port}`)}`)
   );
 }
 

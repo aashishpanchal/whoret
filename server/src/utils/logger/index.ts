@@ -1,15 +1,16 @@
 import * as winston from "winston";
 import * as formats from "./formats";
 import * as constants from "./constants";
+import config from "@/config";
 
-class Logger {
+export class Logger {
   private logger: winston.Logger;
 
-  constructor() {
+  constructor(appName: string) {
     this.logger = winston.createLogger({
       level: constants.LEVEL_LABEL,
       levels: constants.LEVELS,
-      format: formats.prettyPrint(),
+      format: formats.prettyPrint(appName),
       transports: [
         new winston.transports.Console(),
         new winston.transports.File({
@@ -47,5 +48,3 @@ class Logger {
     this.logger.debug(msg, meta);
   }
 }
-
-export default new Logger();

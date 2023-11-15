@@ -12,6 +12,7 @@ export function appConfig() {
       node_env,
       name: process.env["NAME"],
       host: process.env["HOST"],
+      client: process.env["CLIENT"],
       port: Number(process.env["PORT"]),
     },
     database_uri: process.env["DATABASE_URI"],

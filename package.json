@@ -1,10 +1,17 @@
 {
-  "name": "whoret",
+  "name": "fastsale",
   "version": "1.0.0",
-  "description": "",
+  "description": "fastsale b2b application.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd ./server && pnpm start",
+    "dev": "concurrently \"pnpm web:dev\" \"pnpm server:dev\"",
+    "build": "concurrently \"pnpm web:build\" \"pnpm server:build\"",
+    "web:dev": "cd ./web && pnpm dev",
+    "server:dev": "cd ./server && pnpm dev",
+    "web:build": "cd ./web && pnpm build",
+    "server:build": "cd ./server && pnpm build",
+    "native:start": "cd ./whoret && pnpm start"
   },
   "keywords": [],
   "author": "Aashish Panchal",

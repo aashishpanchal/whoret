@@ -12,26 +12,14 @@ const Color: Record<string, (text: string) => string> = {
 
 const defaultTimestampFormat = "DD/MM/YYYY hh:mm:ss A";
 
-export interface PrettyPrintOptions {
-  timestamps?: Logform.TimestampOptions["format"] | boolean;
-}
-
 /**
  * Create a pretty print formatter for a winston logger
  * @param options
  */
-export function prettyPrint(options: PrettyPrintOptions = {}) {
-  const { timestamps = true } = options;
-
+export function prettyPrint(appName: string = "app") {
   const handlers: Logform.Format[] = [];
 
-  if (timestamps) {
-    handlers.push(
-      format.timestamp({
-        format: timestamps === true ? defaultTimestampFormat : timestamps,
-      })
-    );
-  }
+  handlers.push(format.timestamp({ format: defaultTimestampFormat }));
 
   handlers.push(logError());
 
@@ -39,9 +27,9 @@ export function prettyPrint(options: PrettyPrintOptions = {}) {
     format.printf(({ level, message, timestamp }) => {
       const color = Color[level] || ((text: string): string => text);
 
-      return `${color(`${level.toUpperCase()}`)}: ${
-        timestamps ? `[${timestamp}] ` : ""
-      } ${message as string}`;
+      return `[${timestamp}] ${color(
+        `${level.toUpperCase()}`
+      )} (${appName}): ${message}`;
     })
   );
 

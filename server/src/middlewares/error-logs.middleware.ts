@@ -1,4 +1,4 @@
-import logger from "@/utils/logger";
+import logger from "@/common/logger";
 import { HttpError } from "@/utils/errors";
 import { ErrorRequestHandler } from "express";
 

@@ -1,5 +1,5 @@
-import config from "@config";
-import logger from "@/utils/logger";
+import config from "@/config";
+import logger from "@/common/logger";
 import { Redis } from "ioredis";
 
 export const redis: Redis = new Redis(config.getOrThrow("redis_uri"));

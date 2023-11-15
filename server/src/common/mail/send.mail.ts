@@ -1,5 +1,5 @@
-import logger from "@logger";
 import config from "@/config";
+import logger from "@/common/logger";
 import defaultsDeep from "lodash/defaultsDeep";
 import { InternalServerError } from "@/utils/errors";
 import { compileTemplate } from "@/utils/tem-compiler";

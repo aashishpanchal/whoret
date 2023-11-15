@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/swcrc",
-  "sourceMaps": true,
+  // "sourceMaps": true,
   "jsc": {
     "parser": {
       "syntax": "typescript",

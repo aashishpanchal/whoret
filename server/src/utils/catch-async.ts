@@ -1,11 +1,10 @@
-import { RequestHandler } from "express";
+// async catch error wrapper
+import { NextFunction, RequestHandler } from "express";
 
-export const catchAsync =
-  <ReqBody = any, P = any, ReqQuery = any>(
-    fn: RequestHandler<P, any, ReqBody, ReqQuery>
-  ): RequestHandler<P, any, ReqBody, ReqQuery> =>
-  (req, res, next) => {
-    const fnReturn = fn(req, res, next);
-
-    return Promise.resolve(fnReturn).catch(next);
+// for function
+export function catchAsync(fn: RequestHandler): RequestHandler {
+  return function (...args: any[]) {
+    const next: NextFunction = args[args.length - 1];
+    return Promise.resolve(fn.apply(this, args)).catch(next);
   };
+}

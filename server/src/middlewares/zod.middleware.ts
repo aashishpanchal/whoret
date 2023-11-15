@@ -14,6 +14,5 @@ export function zodMiddleware(
       statusCode: httpStatus.BAD_REQUEST,
       error: err.flatten(),
     });
-  return;
-  _next(err);
+  else _next(err);
 }

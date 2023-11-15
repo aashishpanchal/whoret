@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import morgan from "morgan";
-import logger from "@logger";
+import logger from "@/common/logger";
 
 const empty = (text: string): string => text;
 

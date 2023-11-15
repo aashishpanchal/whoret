@@ -1,7 +1,6 @@
-import chalk from "chalk";
-import logger from "@logger";
-import config from "@config";
+import config from "@/config";
 import mongoose from "mongoose";
+import logger from "@/common/logger";
 import { formatPlugin } from "./plugins";
 
 // add global plugins
@@ -16,11 +15,7 @@ async function connectDB() {
       autoIndex: true,
     });
     // logs
-    logger.log(
-      `MongoDB connected ${chalk.yellow(
-        `!! DB HOST: ${instance.connection.host}🔥`
-      )}`
-    );
+    logger.log(`MongoDB connected`);
     // on exit to close mongodb server
     process.on("SIGTERM", () => {
       instance.connection.close();

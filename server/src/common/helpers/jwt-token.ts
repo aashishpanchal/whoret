@@ -5,18 +5,24 @@ import config from "@/config";
 import jwt from "jsonwebtoken";
 import { Messages } from "@/constants";
 import { Unauthorized, BadRequest } from "@/utils/errors";
-import { BlacklistedTokenModel, OutstandingTokenModel } from "@models";
+import { BlacklistedTokenModel, OutstandingTokenModel } from "@/models";
+
+interface JwtOptions {
+  exp: string;
+  type: string;
+  save?: boolean;
+  algorithm?: jwt.Algorithm;
+}
 
 export class JwtToken {
-  declare options: Jwt.JwtOptions;
+  declare options: JwtOptions;
 
   declare exp_in: number;
 
-  constructor(options: Jwt.JwtOptions) {
+  constructor(options: JwtOptions) {
     this.options = _.defaultsDeep(options, {
       save: false,
       type: "test",
-      issuer: "test",
       algorithm: "HS512",
     });
 

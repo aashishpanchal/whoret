@@ -1,4 +1,4 @@
-import config from "@config";
+import config from "@/config";
 import httpStatus from "http-status";
 import { HttpError } from "@/utils/errors";
 import { ErrorRequestHandler } from "express";
